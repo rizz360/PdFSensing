@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PdF Sensing</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="background_text">PDF\nSENSING</string>
+    <string name="recordButtonDescription">Records a new recording</string>
+    <string name="playButtonDescription">Button that plays the last recorded capture.</string>
+    <string name="gps_indicator_description">Indicates whether the device currently receives a valid gps signal</string>
+    <string name="orientation_indicator_description">Indicates whether the device\'s orientation is correct.</string>
+    <string name="angle_indicator_description">Indicates whether the device\'s angle is currently correct.</string>
+    <string name="help_description">Opens up history of previous recordings</string>
+</resources>

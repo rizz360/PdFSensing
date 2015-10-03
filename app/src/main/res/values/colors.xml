@@ -1,0 +1,16 @@
+<resources>
+    <color name="black_overlay">#66000000</color>
+    <color name="panel_background">#34495e</color>
+    <color name="app_background">#2c3e50</color>
+    <color name="background_text">#95a5a6</color>
+    <color name="help_background">#50bdc3c7</color>
+
+    <color name="negative">#c0392b</color>
+    <color name="positive">#27ae60</color>
+    <color name="neutral">#f1c40f</color>
+
+    <color name="inactive">#95a5a6</color>
+    <color name="active">#e74c3c</color>
+
+    <color name="helperText">#95a5a6</color>
+</resources>

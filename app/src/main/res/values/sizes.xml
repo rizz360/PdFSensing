@@ -1,0 +1,8 @@
+<resources>
+    <item name="match_parent" type="dimen">-1dp</item>
+    <item name="wrap_content" type="dimen">-2dp</item>
+    <dimen name="icon_height">100dp</dimen>
+    <dimen name="icon_width">100dp</dimen>
+    <dimen name="panel_height">150dp</dimen>
+    <dimen name="panel_width">@dimen/match_parent</dimen>
+</resources>
