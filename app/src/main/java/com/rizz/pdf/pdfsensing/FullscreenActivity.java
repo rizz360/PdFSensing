@@ -48,7 +48,6 @@ public class FullscreenActivity extends Activity {
     //Propagate button calls towards methods
     public void recordAction(View view) {arcRecTimer.startCountdown();}
     public void playAction(View view) {arcPlayTimer.startCountdown();}
-    //public void menuAction(View view) {HistoryHandler.openHistory(view);}
     private boolean helpVisibility = false;
     public void helpAction(View view) {
         helpVisibility = !helpVisibility;
