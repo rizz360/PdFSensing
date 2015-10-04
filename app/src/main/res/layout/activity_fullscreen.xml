@@ -39,7 +39,7 @@
             android:layout_height="@dimen/icon_height"
             android:layout_gravity="right|center_vertical"
             android:contentDescription="@string/shake_description"
-            android:src="@drawable/ic_degrees"
+            android:src="@drawable/ic_shake"
             android:tint="@color/positive" />
 
         <ImageView
@@ -135,14 +135,14 @@
             android:visibility="visible" />
 
         <TextView
-            android:id="@+id/help_angle"
+            android:id="@+id/help_shake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/help_orientation"
             android:layout_alignBottom="@+id/help_orientation"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:text="Device Angle"
+            android:text="Shaking"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/helperText" />
 
