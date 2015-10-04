@@ -48,6 +48,7 @@ public class StatusHandler {
         LocationHandler.enableListener();
         activateShakeListener();
 
+        //TODO maybe just get rid of this and only check when button pressed
         readyStateCheckTimer = new CountDownTimer(500, 500) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -86,7 +87,7 @@ public class StatusHandler {
         readyStateCheckTimer.start();
     }
 
-    private static boolean checkReadyState() {
+    public static boolean checkReadyState() {
         return (isStatusReady(gpsView) && isStatusReady(orientationView) && isStatusReady(shakeView));
     }
 

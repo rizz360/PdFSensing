@@ -25,6 +25,12 @@ public class FullscreenActivity extends Activity {
     private RelativeLayout helpOverlay;
     private boolean helpVisibility = false;
 
+    /*TODO
+    * fix play button state
+    * make record button only usable when conditions are met
+    * make intro screen nicer to look at
+    * add splash screen before intro screen?
+     */
     public FullscreenActivity() {}
 
     @Override
@@ -48,7 +54,10 @@ public class FullscreenActivity extends Activity {
     }
 
     //Propagate button calls towards methods
-    public void recordAction(View view) {arcRecTimer.startCountdown();}
+    public void recordAction(View view) {
+        if (StatusHandler.checkReadyState())
+            arcRecTimer.startCountdown();
+    }
 
     public void playAction(View view) {arcPlayTimer.startCountdown();}
 
