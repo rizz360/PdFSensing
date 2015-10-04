@@ -23,6 +23,7 @@ public class FullscreenActivity extends Activity {
     private ArcRecordTimer arcRecTimer;
     private ArcPlayTimer arcPlayTimer;
     private RelativeLayout helpOverlay;
+    private boolean helpVisibility = false;
 
     public FullscreenActivity() {}
 
@@ -40,6 +41,7 @@ public class FullscreenActivity extends Activity {
         MetaDataHandler.init();
         StatusHandler.init(this);
         Log.i(LOG_TAG, "services initialized");
+
         arcRecTimer = (ArcRecordTimer)(this.findViewById(R.id.arcRecTimer));
         arcPlayTimer = (ArcPlayTimer)(this.findViewById(R.id.arcPlayTimer));
         helpOverlay = (RelativeLayout)(this.findViewById(R.id.help_overlay));
@@ -47,8 +49,9 @@ public class FullscreenActivity extends Activity {
 
     //Propagate button calls towards methods
     public void recordAction(View view) {arcRecTimer.startCountdown();}
+
     public void playAction(View view) {arcPlayTimer.startCountdown();}
-    private boolean helpVisibility = false;
+
     public void helpAction(View view) {
         helpVisibility = !helpVisibility;
         if(helpVisibility)

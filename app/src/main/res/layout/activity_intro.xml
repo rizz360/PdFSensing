@@ -2,15 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
+    android:background="@color/app_background"
     tools:context="com.rizz.pdf.pdfsensing.IntroActivity">
-
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
 
     <Button
         android:id="@+id/startButton"
@@ -19,9 +12,11 @@
         android:layout_gravity="center_horizontal|bottom"
         android:onClick="startButtonAction"
         android:text="READY"
+        android:textColor="@color/background_text"
         android:textSize="80dp" />
 
     <LinearLayout
+        android:id="@+id/checkBoxLayout"
         android:layout_width="match_parent"
         android:layout_height="406dp"
         android:layout_gravity="center_horizontal|top"
@@ -32,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Sind Sie draußen?"
+            android:text="Sie sind draußen"
             android:textSize="40dp" />
 
         <CheckBox
@@ -40,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Frage 2"
+            android:text="Es regnet nicht"
             android:textSize="40dp" />
 
         <CheckBox
@@ -48,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Frage 3"
+            android:text="Sie sind ruhig während Aufnhame"
             android:textSize="40dp" />
 
         <CheckBox
@@ -56,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Frage 4"
+            android:text="Sie ..."
             android:textSize="40dp" />
 
         <CheckBox
@@ -64,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Sind Sie bereit?"
+            android:text="Sie sind bereit"
             android:textSize="40dp" />
     </LinearLayout>
 </FrameLayout>

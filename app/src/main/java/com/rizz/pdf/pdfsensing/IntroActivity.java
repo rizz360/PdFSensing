@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -13,39 +14,25 @@ import java.util.ArrayList;
  * and checklist of non verifiable statuses
  */
 public class IntroActivity extends Activity {
+    private LinearLayout checkBoxList;
     private ArrayList<CheckBox> checkBoxes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_intro);
-        checkBoxes = new ArrayList<>();
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox1));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox2));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox3));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox4));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox5));
-        /*
-        // Set up the user interaction to manually show or hide the system UI.
-        contentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (TOGGLE_ON_CLICK) {
-                    mSystemUiHider.toggle();
-                } else {
-                    mSystemUiHider.show();
-                }
-            }
-        });
-    */
+        prepareStartButton();
     }
 
+    private void prepareStartButton() {
+        checkBoxList = (LinearLayout) findViewById(R.id.checkBoxLayout);
+        checkBoxes = new ArrayList<>();
+        for (int i = 0; i < checkBoxList.getChildCount(); i++)
+            checkBoxes.add((CheckBox) checkBoxList.getChildAt(i));
+    }
     public void startButtonAction(View view) {
         for (CheckBox check : checkBoxes)
             if (!check.isChecked()) return;
-        //Start main activity
         Intent intent = new Intent(this, FullscreenActivity.class);
         startActivity(intent);
     }
