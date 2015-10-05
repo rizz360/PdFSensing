@@ -27,39 +27,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Sie sind draußen"
-            android:textSize="40dp" />
+            android:text="@string/question1"
+            android:textSize="@dimen/question_text_size" />
 
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Es regnet nicht"
-            android:textSize="40dp" />
+            android:text="@string/question2"
+            android:textSize="@dimen/question_text_size" />
 
         <CheckBox
             android:id="@+id/checkBox3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Sie sind ruhig während Aufnhame"
-            android:textSize="40dp" />
+            android:text="@string/question3"
+            android:textSize="@dimen/question_text_size" />
 
         <CheckBox
             android:id="@+id/checkBox4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Sie ..."
-            android:textSize="40dp" />
+            android:text="@string/question4"
+            android:textSize="@dimen/question_text_size" />
 
         <CheckBox
             android:id="@+id/checkBox5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Sie sind bereit"
-            android:textSize="40dp" />
+            android:text="@string/question5"
+            android:textSize="@dimen/question_text_size" />
     </LinearLayout>
 </FrameLayout>

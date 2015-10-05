@@ -27,7 +27,6 @@ public class FullscreenActivity extends Activity {
 
     /*TODO
     * fix play button state
-    * make record button only usable when conditions are met
     * make intro screen nicer to look at
     * add splash screen before intro screen?
      */

@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.CountDownTimer;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -16,16 +17,14 @@ import com.rizz.pdf.pdfsensing.Handlers.AudioHandler;
  */
 public class ArcPlayTimer extends ArcTimer {
     private static String LOG_TAG = "ArcPlayTimer";
+    private final int STROKE_WIDTH = 7;
+    private final long TIMER_UPDATE_INTERVAL_MS = 50L;
     private Paint arcPaint;
     private Paint textPaint;
     private Paint dotPaint;
-
     private RectF bigOval;  //is basically the frame in which the Arc is allowed to move
     private boolean useCenter;
-    private final int STROKE_WIDTH = 7;
-
     private CountDownTimer cdt;
-    private final long TIMER_UPDATE_INTERVAL_MS = 50L;
     private float start = 0f;
     private float sweep = 360;
     private int recordingLengthMS = 0;
@@ -92,7 +91,7 @@ public class ArcPlayTimer extends ArcTimer {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         //Draw the actual countdown arc
         canvas.drawArc(bigOval, start, sweep, useCenter, arcPaint);
         drawCenteredText(canvas, playState, bigOval, textPaint);

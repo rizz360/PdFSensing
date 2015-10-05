@@ -12,4 +12,9 @@
 
     <string name="title_activity_intro">IntroActivity</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="question1">Sie sind draußen</string>
+    <string name="question2">Es regnet nicht</string>
+    <string name="question3">Sie sind ruhig während Aufnhame</string>
+    <string name="question4">Sie nehmen mit gestrecktem Arm auf</string>
+    <string name="question5">Sie sind bereit</string>
 </resources>

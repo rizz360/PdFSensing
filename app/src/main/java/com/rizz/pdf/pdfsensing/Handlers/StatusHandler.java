@@ -9,6 +9,7 @@ import android.os.CountDownTimer;
 import android.view.OrientationEventListener;
 import android.widget.ImageView;
 
+import com.rizz.pdf.pdfsensing.ArcRecordTimer;
 import com.rizz.pdf.pdfsensing.R;
 import com.rizz.pdf.pdfsensing.ShakeEventListener;
 
@@ -22,6 +23,7 @@ public class StatusHandler {
     private static StatusHandler statusHandler = null;
     private static ImageView gpsView = null;
     private static ImageView orientationView = null;
+    private static ArcRecordTimer recordButton = null;
     private static Activity activity;
     private static Context baseContext = null;
     private static Resources res = null;
@@ -43,12 +45,12 @@ public class StatusHandler {
         gpsView = (ImageView) activity.findViewById(R.id.gps_indicator);
         orientationView = (ImageView) activity.findViewById(R.id.orientation_indicator);
         shakeView = (ImageView) activity.findViewById(R.id.shake_indicator);
+        recordButton = (ArcRecordTimer) activity.findViewById(R.id.arcRecTimer);
 
         activateOrientationListener();
         LocationHandler.enableListener();
         activateShakeListener();
 
-        //TODO maybe just get rid of this and only check when button pressed
         readyStateCheckTimer = new CountDownTimer(500, 500) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -56,18 +58,21 @@ public class StatusHandler {
 
             @Override
             public void onFinish() {
-                setRecordButtonState(checkReadyState());
+                recordButton.setEnabled(checkReadyState());
                 updateReadyState();
             }
         };
+        updateReadyState();
     }
 
     public static void updateStatus(ImageView item, boolean status) {
         if(status)  setColor(item,R.color.positive);
         else        setColor(item, R.color.negative);
+        item.setEnabled(status);
     }
 
     public static void updateShakeStatus(boolean status) {
+        shakeView.setEnabled(status);
         updateStatus(shakeView, status);
     }
 
@@ -78,9 +83,13 @@ public class StatusHandler {
 
     public static void updateGPSStatus(GPSSTATE state) {
         if(gpsView == null) return;
+        gpsView.setEnabled(true);
         if(state == GPSSTATE.FULL) setColor(gpsView, R.color.positive);
         if(state == GPSSTATE.PARTIAL) setColor(gpsView, R.color.neutral);
-        if(state == GPSSTATE.NONE) setColor(gpsView, R.color.negative);
+        if (state == GPSSTATE.NONE) {
+            setColor(gpsView, R.color.negative);
+            gpsView.setEnabled(false);
+        }
     }
 
     private static void updateReadyState() {
@@ -92,14 +101,7 @@ public class StatusHandler {
     }
 
     private static boolean isStatusReady(ImageView view) {
-        return true;    //TODO find a way to make this bearable
-        //return(view.getColorFilter().equals(res.getColor(R.color.positive)));
-    }
-
-    private static void setRecordButtonState(boolean state) {
-        if (state) return;
-        else //TODO deactivate recording button when device is not ready
-            return;
+        return view.isEnabled();
     }
 
     private static void activateOrientationListener() {

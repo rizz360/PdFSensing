@@ -58,29 +58,6 @@
         android:layout_gravity="center_horizontal|bottom"
         android:background="@color/panel_background">
 
-        <ImageButton
-            android:id="@+id/recordButton"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_height"
-            android:layout_gravity="center"
-            android:background="@drawable/roundcorner"
-            android:contentDescription="@string/recordButtonDescription"
-            android:onClick="recordAction"
-            android:src="@drawable/ic_record"
-            android:tint="@color/inactive" />
-
-        <ImageButton
-            android:id="@+id/playButton"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_height"
-            android:layout_gravity="right|center_vertical"
-            android:background="@drawable/roundcorner"
-            android:clickable="false"
-            android:contentDescription="@string/playButtonDescription"
-            android:onClick="playAction"
-            android:src="@drawable/ic_play"
-            android:tint="@color/inactive" />
-
         <Button
             android:id="@+id/helpButton"
             android:layout_width="@dimen/icon_width"
@@ -101,6 +78,7 @@
             android:layout_height="@dimen/icon_height"
             android:layout_gravity="center"
             android:background="@drawable/roundcorner"
+            android:onClick="recordAction"
             android:tint="@color/inactive" />
 
         <com.rizz.pdf.pdfsensing.ArcPlayTimer
@@ -109,6 +87,7 @@
             android:layout_height="@dimen/icon_height"
             android:layout_gravity="right|center_vertical"
             android:background="@drawable/roundcorner"
+            android:onClick="playAction"
             android:tint="@color/inactive" />
 
     </FrameLayout>

@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.CountDownTimer;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -16,17 +17,16 @@ import com.rizz.pdf.pdfsensing.Handlers.AudioHandler;
  */
 public class ArcRecordTimer extends ArcTimer {
     private static String LOG_TAG = "ArcRecordTimer";
+    private final int STROKE_WIDTH = 7;
+    private final long TIMER_DURATION_MS = 10000L;
+    private final long TIMER_UPDATE_INTERVAL_MS = 50L;
     private Paint arcPaint;
     private Paint textPaint;
     private Paint dotPaint;
-
+    private boolean isEnabled = false;
     private RectF bigOval;  //is basically the frame in which the Arc is allowed to move
     private boolean useCenter;
-    private final int STROKE_WIDTH = 7;
-
     private CountDownTimer cdt;
-    private final long TIMER_DURATION_MS = 10000L;
-    private final long TIMER_UPDATE_INTERVAL_MS = 50L;
     private float start = 0f;
     private float sweep = 360;
     private int secondsRemaining = (int)TIMER_DURATION_MS/1000;
@@ -90,10 +90,24 @@ public class ArcRecordTimer extends ArcTimer {
         cdt = null;
     }
 
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean state) {
+        isEnabled = state;
+    }
+
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         //Draw the actual countdown arc
         canvas.drawArc(bigOval, start, sweep, useCenter, arcPaint);
+
+        if (!isEnabled) {
+            canvas.drawLine(0, 0, bigOval.width(), bigOval.height(), arcPaint);
+            invalidate();
+            return;
+        }
 
         //Draw middle portion displaying the remaining time in seconds
         //or a simple dot to indicate that recording can start
