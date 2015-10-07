@@ -7,6 +7,14 @@
     <string name="playButtonDescription">Button that plays the last recorded capture.</string>
     <string name="gps_indicator_description">Indicates whether the device currently receives a valid gps signal</string>
     <string name="orientation_indicator_description">Indicates whether the device\'s orientation is correct.</string>
-    <string name="angle_indicator_description">Indicates whether the device\'s angle is currently correct.</string>
+    <string name="shake_description">Indicates whether the device\'s being shaken too much.</string>
     <string name="help_description">Opens up history of previous recordings</string>
+
+    <string name="title_activity_intro">IntroActivity</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="question1">Sie sind draußen</string>
+    <string name="question2">Es regnet nicht</string>
+    <string name="question3">Sie sind ruhig während Aufnhame</string>
+    <string name="question4">Sie nehmen mit gestrecktem Arm auf</string>
+    <string name="question5">Sie sind bereit</string>
 </resources>

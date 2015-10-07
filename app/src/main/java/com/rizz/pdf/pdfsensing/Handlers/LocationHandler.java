@@ -21,28 +21,26 @@ import java.util.Locale;
 public class LocationHandler {
     private static final String LOG_TAG = "LocationHandler";
     private static LocationHandler locationHandler = null;
-    private LocationHandler() {
-    }
-
-    public static void init(Context bc) {
-        if(locationHandler == null) locationHandler = new LocationHandler();
-        baseContext = bc;
-        if(baseContext != null)
-            locationManager = (LocationManager)baseContext.getSystemService(Context.LOCATION_SERVICE);
-        if(locationManager != null)
-            updateLocation();
-    }
-
     //http://www.rdcworld-android.blogspot.in/2012/01/get-current-location-coordinates-city.html
     private static LocationManager locationManager = null;
     private static Context baseContext = null;
-
     private static Location lastKnownLocationGPS;
     private static Location lastKnownLocationNETWORK;
     private static String cityName = "not yet implemented";
     private static double lon = 0.0;
     private static double lat = 0.0;
 
+    private LocationHandler() {
+    }
+
+    public static void init(Context bc) {
+        if (locationHandler == null) locationHandler = new LocationHandler();
+        baseContext = bc;
+        if (baseContext != null)
+            locationManager = (LocationManager) baseContext.getSystemService(Context.LOCATION_SERVICE);
+        if (locationManager != null)
+            updateLocation();
+    }
 
     public static void updateLocation() {
         try {
@@ -68,7 +66,6 @@ public class LocationHandler {
         LocationListener locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                Log.i(LOG_TAG, "Location changed: Lon=" + location.getLongitude() + " / Lat=" + location.getLatitude() + " from provider: " + location.getProvider() + " with accuracy " + location.getAccuracy());
                 updateLocation();
             }
 

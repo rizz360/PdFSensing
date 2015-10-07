@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.util.Log;
-import android.widget.ImageButton;
 
+import com.rizz.pdf.pdfsensing.ArcPlayTimer;
 import com.rizz.pdf.pdfsensing.R;
 
 import java.io.IOException;
@@ -17,15 +17,16 @@ import java.io.IOException;
 public class AudioHandler {
     private static final String LOG_TAG = "AudioHandler";
     private static AudioHandler audioHandler = null;
-    private AudioHandler() {}
-    private static ImageButton playButton = null;
-
+    private static ArcPlayTimer playButton = null;
     private static MediaPlayer mediaPlayer = null;
     private static MediaRecorder mediaRecorder = null;
 
+    private AudioHandler() {
+    }
+
     public static void init(Activity activity) {
         if(audioHandler == null) audioHandler = new AudioHandler();
-        playButton =  (ImageButton)(activity.findViewById(R.id.playButton));
+        playButton = (ArcPlayTimer) (activity.findViewById(R.id.arcPlayTimer));
         playButton.setEnabled(false);
     }
 

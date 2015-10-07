@@ -4,15 +4,16 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
-import android.view.View;
+import android.widget.Button;
 
 
 /**
  * Created by Rizz on 02/10/2015.
  * General draft as abstract class
  */
-public abstract class ArcTimer extends View {
+public abstract class ArcTimer extends Button {
 
     public ArcTimer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -29,6 +30,6 @@ public abstract class ArcTimer extends View {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
     }
 }

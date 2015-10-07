@@ -7,9 +7,13 @@
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
     <TextView android:id="@+id/fullscreen_content" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:keepScreenOn="true" android:textColor="@color/background_text"
-        android:textStyle="bold" android:textSize="60sp" android:gravity="center"
-        android:text="@string/background_text" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="@string/background_text"
+        android:textColor="@color/background_text"
+        android:textSize="60sp"
+        android:textStyle="bold" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
@@ -21,30 +25,30 @@
         android:background="@color/panel_background">
 
         <ImageView
+            android:id="@+id/orientation_indicator"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_width"
-            android:src="@drawable/ic_orientation"
-            android:id="@+id/orientation_indicator"
             android:layout_gravity="center"
             android:contentDescription="@string/orientation_indicator_description"
+            android:src="@drawable/ic_orientation"
             android:tint="@color/negative" />
 
         <ImageView
+            android:id="@+id/shake_indicator"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
-            android:src="@drawable/ic_degrees"
-            android:id="@+id/angle_indicator"
             android:layout_gravity="right|center_vertical"
-            android:contentDescription="@string/angle_indicator_description"
-            android:tint="@color/negative" />
+            android:contentDescription="@string/shake_description"
+            android:src="@drawable/ic_shake"
+            android:tint="@color/positive" />
 
         <ImageView
+            android:id="@+id/gps_indicator"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
-            android:id="@+id/gps_indicator"
             android:layout_gravity="left|center_vertical"
-            android:src="@drawable/ic_gps"
             android:contentDescription="@string/gps_indicator_description"
+            android:src="@drawable/ic_gps"
             android:tint="@color/negative" />
     </FrameLayout>
 
@@ -54,147 +58,126 @@
         android:layout_gravity="center_horizontal|bottom"
         android:background="@color/panel_background">
 
-        <ImageButton
-            android:id="@+id/recordButton"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_height"
-            android:src="@drawable/ic_record"
-            android:onClick="recordAction"
-            android:layout_gravity="center"
-            android:tint="@color/inactive"
-            android:background="@drawable/roundcorner"
-            android:contentDescription="@string/recordButtonDescription" />
-
-        <ImageButton
-            android:id="@+id/playButton"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_height"
-            android:onClick="playAction"
-            android:src="@drawable/ic_play"
-            android:layout_gravity="right|center_vertical"
-            android:tint="@color/inactive"
-            android:background="@drawable/roundcorner"
-            android:contentDescription="@string/playButtonDescription"
-            android:clickable="false" />
-
         <Button
+            android:id="@+id/helpButton"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
-            android:id="@+id/helpButton"
             android:layout_gravity="left|center_vertical"
-            android:contentDescription="@string/help_description"
-            android:tint="@color/inactive"
             android:background="@drawable/roundcorner"
-            android:src="@drawable/ic_menu"
+            android:contentDescription="@string/help_description"
             android:onClick="helpAction"
+            android:src="@drawable/ic_menu"
+            android:text="\u003F"
             android:textColor="@color/inactive"
             android:textSize="70dp"
-            android:text="\u003F" />
+            android:tint="@color/inactive" />
 
         <com.rizz.pdf.pdfsensing.ArcRecordTimer
+            android:id="@+id/arcRecTimer"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
+            android:layout_gravity="center"
             android:background="@drawable/roundcorner"
-            android:tint="@color/inactive"
-            android:id="@+id/arcRecTimer"
-            android:layout_gravity="center" />
+            android:onClick="recordAction"
+            android:tint="@color/inactive" />
 
         <com.rizz.pdf.pdfsensing.ArcPlayTimer
+            android:id="@+id/arcPlayTimer"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
+            android:layout_gravity="right|center_vertical"
             android:background="@drawable/roundcorner"
-            android:tint="@color/inactive"
-            android:id="@+id/arcPlayTimer"
-            android:layout_gravity="right|center_vertical" />
+            android:onClick="playAction"
+            android:tint="@color/inactive" />
 
     </FrameLayout>
 
     <RelativeLayout
+        android:id="@+id/help_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/help_background"
         android:layout_gravity="center"
-        android:id="@+id/help_overlay"
         android:background="@color/help_background"
+        android:backgroundTint="@color/help_background"
         android:visibility="invisible">
 
         <TextView
+            android:id="@+id/help_orientation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Orientation"
-            android:textColor="@color/helperText"
-            android:id="@+id/help_orientation"
-            android:layout_marginTop="90dp"
             android:layout_below="@+id/help_text"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
+            android:text="Orientation"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/helperText"
             android:visibility="visible" />
 
         <TextView
+            android:id="@+id/help_shake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Device Angle"
-            android:textColor="@color/helperText"
-            android:id="@+id/help_angle"
             android:layout_alignBaseline="@+id/help_orientation"
             android:layout_alignBottom="@+id/help_orientation"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:text="Shaking"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/helperText" />
 
         <TextView
+            android:id="@+id/help_gps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="GPS Signal"
-            android:textColor="@color/helperText"
-            android:id="@+id/help_gps"
             android:layout_alignBaseline="@+id/help_orientation"
             android:layout_alignBottom="@+id/help_orientation"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:text="GPS Signal"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/helperText" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/helperText"
-            android:text="Status indicators - must be green"
             android:id="@+id/help_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:text="Status indicators - must be green"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/helperText" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Record"
-            android:textColor="@color/helperText"
             android:id="@+id/textView"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Record"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Play"
-            android:textColor="@color/helperText"
+            android:textColor="@color/helperText" />
+
+        <TextView
             android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/help_text"
             android:layout_alignParentBottom="true"
             android:layout_alignRight="@+id/help_text"
-            android:layout_alignEnd="@+id/help_text" />
+            android:text="Play"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/helperText" />
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Close help"
-            android:textColor="@color/helperText"
-            android:id="@+id/textView3"
+            android:layout_alignEnd="@+id/help_gps"
             android:layout_alignParentBottom="true"
             android:layout_alignRight="@+id/help_gps"
-            android:layout_alignEnd="@+id/help_gps" />
+            android:text="Close help"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/helperText" />
 
     </RelativeLayout>
 

@@ -23,7 +23,13 @@ public class FullscreenActivity extends Activity {
     private ArcRecordTimer arcRecTimer;
     private ArcPlayTimer arcPlayTimer;
     private RelativeLayout helpOverlay;
+    private boolean helpVisibility = false;
 
+    /*TODO
+    * fix play button state
+    * make intro screen nicer to look at
+    * add splash screen before intro screen?
+     */
     public FullscreenActivity() {}
 
     @Override
@@ -40,16 +46,20 @@ public class FullscreenActivity extends Activity {
         MetaDataHandler.init();
         StatusHandler.init(this);
         Log.i(LOG_TAG, "services initialized");
+
         arcRecTimer = (ArcRecordTimer)(this.findViewById(R.id.arcRecTimer));
         arcPlayTimer = (ArcPlayTimer)(this.findViewById(R.id.arcPlayTimer));
         helpOverlay = (RelativeLayout)(this.findViewById(R.id.help_overlay));
     }
 
     //Propagate button calls towards methods
-    public void recordAction(View view) {arcRecTimer.startCountdown();}
+    public void recordAction(View view) {
+        if (StatusHandler.checkReadyState())
+            arcRecTimer.startCountdown();
+    }
+
     public void playAction(View view) {arcPlayTimer.startCountdown();}
-    //public void menuAction(View view) {HistoryHandler.openHistory(view);}
-    private boolean helpVisibility = false;
+
     public void helpAction(View view) {
         helpVisibility = !helpVisibility;
         if(helpVisibility)
