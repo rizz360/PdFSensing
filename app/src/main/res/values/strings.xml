@@ -1,25 +1,38 @@
 <resources>
-    <string name="app_name">PdF Sensing</string>
+    <string name="app_name" translatable="false">PdF Sensing</string>
 
-    <string name="dummy_button">Dummy Button</string>
-    <string name="background_text">PDF\nSENSING</string>
-    <string name="recordButtonDescription">Records a new recording</string>
-    <string name="playButtonDescription">Button that plays the last recorded capture.</string>
-    <string name="gps_indicator_description">Indicates whether the device currently receives a valid gps signal</string>
-    <string name="orientation_indicator_description">Indicates whether the device\'s orientation is correct.</string>
-    <string name="shake_description">Indicates whether the device\'s being shaken too much.</string>
-    <string name="help_description">Opens up history of previous recordings</string>
+    <string name="dummy_button" translatable="false">Dummy Button</string>
+    <string name="background_text" translatable="false">PDF\nSENSING</string>
+    <string name="recordButtonDescription" translatable="false">Records a new recording</string>
+    <string name="playButtonDescription" translatable="false">Button that plays the last recorded capture.</string>
+    <string name="gps_indicator_description" translatable="false">Indicates whether the device currently receives a valid gps signal</string>
+    <string name="orientation_indicator_description" translatable="false">Indicates whether the device\'s orientation is correct.</string>
+    <string name="shake_description" translatable="false">Indicates whether the device\'s being shaken too much.</string>
+    <string name="help_description" translatable="false">Opens up history of previous recordings</string>
 
-    <string name="title_activity_intro">IntroActivity</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="question1">Sie sind draußen</string>
-    <string name="question2">Es regnet nicht</string>
-    <string name="question3">Sie sind ruhig während Aufnahme</string>
-    <string name="question4">Sie nehmen mit gestrecktem Arm auf</string>
-    <string name="question5">Sie sind bereit</string>
-    <string name="title_activity_splashscreen">Splashscreen</string>
+    <string name="title_activity_intro" translatable="false">IntroActivity</string>
+    <string name="dummy_content" translatable="false">DUMMY\nCONTENT</string>
+    <string name="question1" translatable="false">Sie sind draußen</string>
+    <string name="question2" translatable="false">Es regnet nicht</string>
+    <string name="question3" translatable="false">Sie sind ruhig während Aufnahme</string>
+    <string name="question4" translatable="false">Sie nehmen mit gestrecktem Arm auf</string>
+    <string name="question5" translatable="false">Sie sind bereit</string>
+    <string name="title_activity_splashscreen" translatable="false">Splashscreen</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
+    <string name="action_settings" translatable="false">Settings</string>
     <string name="splashScreenButtonText">Get started!</string>
+    <string name="instruction_title">Bitte fahren Sie nur unter folgenden Bedingungen fort:</string>
+    <string name="instruction_list">
+        * Es regnet nicht \n* Sie sind draußen \n* Sie nehmen mit gestrecktem Arm auf \n* Sie sind ruhig während der Aufnhame \n
+    </string>
+    <string name="help_orientation">Orientation</string>
+    <string name="help_shake">Schütteln</string>
+    <string name="help_gps">GPS Signal</string>
+    <string name="help_instruction">Status Indikatoren - müssen grün/gelb sein:</string>
+    <string name="help_record">Aufnehmen</string>
+    <string name="help_play">Wiedergeben</string>
+    <string name="help_help">[x] Hilfe</string>
+    <string name="help_button_special" translatable="false">\?</string>
+    <string name="intro_button">Verstanden</string>
 </resources>

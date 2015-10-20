@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.OrientationEventListener;
 import android.widget.ImageView;
 
@@ -42,9 +43,9 @@ public class StatusHandler {
         res = activity.getResources();
         baseContext = activity.getBaseContext();
 
-        gpsView = (ImageView) activity.findViewById(R.id.gps_indicator);
-        orientationView = (ImageView) activity.findViewById(R.id.orientation_indicator);
-        shakeView = (ImageView) activity.findViewById(R.id.shake_indicator);
+        gpsView = (ImageView) activity.findViewById(R.id.gps_indicator); gpsView.setEnabled(false);
+        orientationView = (ImageView) activity.findViewById(R.id.orientation_indicator); orientationView.setEnabled(false);
+        shakeView = (ImageView) activity.findViewById(R.id.shake_indicator); shakeView.setEnabled(true);
         recordButton = (ArcRecordTimer) activity.findViewById(R.id.arcRecTimer);
 
         activateOrientationListener();

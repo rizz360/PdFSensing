@@ -2,6 +2,7 @@ package com.rizz.pdf.pdfsensing;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.CountDownTimer;
@@ -51,7 +52,6 @@ public class ArcRecordTimer extends ArcTimer {
         dotPaint.setStyle(Paint.Style.FILL);
         dotPaint.setAntiAlias(true);
 
-
         int offset = STROKE_WIDTH - 3;
         bigOval = new RectF(offset, offset, context.getResources().getDimension(R.dimen.icon_width) - offset, context.getResources().getDimension(R.dimen.icon_height) - offset);
         useCenter = false;
@@ -98,6 +98,8 @@ public class ArcRecordTimer extends ArcTimer {
         isEnabled = state;
     }
 
+    private float radius = 30;
+    private boolean growing = false;
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         //Draw the actual countdown arc
@@ -111,8 +113,19 @@ public class ArcRecordTimer extends ArcTimer {
 
         //Draw middle portion displaying the remaining time in seconds
         //or a simple dot to indicate that recording can start
-        if(secondsRemaining>=TIMER_DURATION_MS/1000)
+
+        if(secondsRemaining >= TIMER_DURATION_MS/1000) {
+            //draw additional pulse
+            if(radius <= 30) growing = true;
+            if(radius >= 45) growing = false;
+            if (growing) radius *= 1.02;
+            if(!growing) radius /= 1.02;
+
+            canvas.drawCircle(bigOval.centerX(), bigOval.centerY(), radius, dotPaint);
+
+            //draw record dot
             canvas.drawCircle(bigOval.centerX(), bigOval.centerY(), 30, dotPaint);
+        }
         else
             drawCenteredText(canvas, secondsRemaining+"", bigOval, textPaint);
         invalidate();

@@ -5,6 +5,7 @@
     <dimen name="icon_width">100dp</dimen>
     <dimen name="panel_height">150dp</dimen>
     <dimen name="panel_width">@dimen/match_parent</dimen>
-    <dimen name="question_text_size">32sp</dimen>
+    <dimen name="question_text_size">26sp</dimen>
+    <dimen name="help_text_size">16sp</dimen>
     <dimen name="splash_loading_size">400px</dimen>
 </resources>

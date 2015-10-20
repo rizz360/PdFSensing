@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="splashScreenButtonText">Get started!</string>
+    <string name="instruction_title">Please continue only if the following conditions are met:</string>
+    <string name="instruction_list">* It\'s not raining \n*You\'re outside \n* You\'re recording with your arm stretched\n* You\'re silent while recording \n</string>
+    <string name="help_shake">Shake</string>
+    <string name="help_record">Record</string>
+    <string name="help_play">Play</string>
+    <string name="help_orientation">Orientation</string>
+    <string name="help_gps">GPS Signal</string>
+    <string name="help_help">[x] Help</string>
+    <string name="help_instruction">Status indicators - must be green/yellow:</string>
+    <string name="intro_button">Understood</string>
+</resources>

@@ -21,18 +21,16 @@ public class IntroActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
-        prepareStartButton();
+        //prepareStartButton();
     }
-
+    /*
     private void prepareStartButton() {
         checkBoxList = (LinearLayout) findViewById(R.id.checkBoxLayout);
         checkBoxes = new ArrayList<>();
         for (int i = 0; i < checkBoxList.getChildCount(); i++)
             checkBoxes.add((CheckBox) checkBoxList.getChildAt(i));
-    }
+    }*/
     public void startButtonAction(View view) {
-        for (CheckBox check : checkBoxes)
-            if (!check.isChecked()) return;
         Intent intent = new Intent(this, FullscreenActivity.class);
         startActivity(intent);
     }
