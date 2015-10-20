@@ -9,7 +9,7 @@ Additional information will be available in the paper - expected time is march-a
 * Recording and play-back of environmental audio
 * Capturing of meta data related to position, date, audio-features, ...
 * Ensuring the avoidance of commonly occuring mistakes while recording, i.e.:
-  * Pose (orientation and position) of user and devices
+  * Pose (orientation and position) of user and device
   * Movement/shaking while recording
   * GPS-Signal Stregth
   * Weather conditions
