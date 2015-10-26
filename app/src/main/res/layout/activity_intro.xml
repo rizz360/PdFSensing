@@ -10,25 +10,25 @@
         android:layout_width="299dp"
         android:layout_height="107dp"
         android:layout_gravity="center_horizontal|bottom"
+        android:enabled="true"
         android:onClick="startButtonAction"
         android:text="@string/intro_button"
         android:textColor="@color/background_text"
-        android:textSize="50dp"
-        android:enabled="true" />
+        android:textSize="50sp" />
 
     <TextView
+        android:id="@+id/instruction_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/instruction_title"
-        android:id="@+id/instruction_title"
         android:layout_gravity="center_horizontal|top"
+        android:text="@string/instruction_title"
         android:textSize="@dimen/question_text_size" />
 
     <TextView
+        android:id="@+id/instruction_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/instruction_list"
-        android:id="@+id/instruction_list"
         android:layout_gravity="center"
+        android:text="@string/instruction_list"
         android:textSize="@dimen/question_text_size" />
 </FrameLayout>

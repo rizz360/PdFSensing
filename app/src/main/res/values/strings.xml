@@ -24,7 +24,7 @@
     <string name="splashScreenButtonText">Get started!</string>
     <string name="instruction_title">Bitte fahren Sie nur unter folgenden Bedingungen fort:</string>
     <string name="instruction_list">
-        * Es regnet nicht \n* Sie sind draußen \n* Sie nehmen mit gestrecktem Arm auf \n* Sie sind ruhig während der Aufnhame \n
+        * Es regnet nicht \n* Sie sind draußen \n* Sie nehmen mit gestrecktem Arm auf \n* Es wird nicht geredet während der Aufnhame \n
     </string>
     <string name="help_orientation">Orientation</string>
     <string name="help_shake">Schütteln</string>

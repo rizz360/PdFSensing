@@ -20,6 +20,7 @@ public class AudioHandler {
     private static ArcPlayTimer playButton = null;
     private static MediaPlayer mediaPlayer = null;
     private static MediaRecorder mediaRecorder = null;
+    private static boolean isRecording = false;
 
     private AudioHandler() {
     }
@@ -70,14 +71,23 @@ public class AudioHandler {
         }
 
         mediaRecorder.start();
+        isRecording = true;
+
     }
 
+    public static boolean isRecording() {
+        return isRecording;
+    }
+
+
     public static void stopRecording() {
+        if (!isRecording()) return;
         mediaRecorder.stop();
         mediaRecorder.release();
         playButton.setEnabled(true);
         FileHandler.writeMetaFile();
         mediaRecorder = null;
+        isRecording = false;
     }
 
     public static void onPause() {

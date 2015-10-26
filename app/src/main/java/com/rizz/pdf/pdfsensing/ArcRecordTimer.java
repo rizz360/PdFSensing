@@ -2,7 +2,6 @@ package com.rizz.pdf.pdfsensing;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.CountDownTimer;
@@ -11,6 +10,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import com.rizz.pdf.pdfsensing.Handlers.AudioHandler;
+import com.rizz.pdf.pdfsensing.Handlers.StatusHandler;
 
 /**
  * Created by Rizz on 02/10/2015.
@@ -31,6 +31,8 @@ public class ArcRecordTimer extends ArcTimer {
     private float start = 0f;
     private float sweep = 360;
     private int secondsRemaining = (int)TIMER_DURATION_MS/1000;
+    private float radius = 30;
+    private boolean growing = false;
 
     public ArcRecordTimer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -77,11 +79,13 @@ public class ArcRecordTimer extends ArcTimer {
             @Override
             public void onFinish() {
                 stopCountDown();
+                StatusHandler.vibrate();
             }
         }.start();
     }
 
-    private void stopCountDown() {
+    public void stopCountDown() {
+        if (!AudioHandler.isRecording()) return;
         cdt.cancel();
         AudioHandler.stopRecording();
         Log.i(LOG_TAG, "Timer stopped");
@@ -98,8 +102,6 @@ public class ArcRecordTimer extends ArcTimer {
         isEnabled = state;
     }
 
-    private float radius = 30;
-    private boolean growing = false;
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         //Draw the actual countdown arc

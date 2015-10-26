@@ -1,12 +1,14 @@
 package com.rizz.pdf.pdfsensing.Handlers;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.CountDownTimer;
-import android.util.Log;
+import android.os.Vibrator;
 import android.view.OrientationEventListener;
 import android.widget.ImageView;
 
@@ -98,7 +100,44 @@ public class StatusHandler {
     }
 
     public static boolean checkReadyState() {
-        return (isStatusReady(gpsView) && isStatusReady(orientationView) && isStatusReady(shakeView));
+        if (isStatusReady(gpsView) && isStatusReady(orientationView) && isStatusReady(shakeView))
+            return true;
+        else {
+            if (AudioHandler.isRecording()) displayAlert();
+            recordButton.stopCountDown();
+            return false;
+        }
+    }
+
+    public static void displayAlert() {
+        String message = "Es kam zu folgenden Problemen:\n";
+        if (!isStatusReady(gpsView)) message += "* Das GPS Signal ist zu schwach.\n";
+        if (!isStatusReady(orientationView))
+            message += "* Das Gerät ist nicht korrekt orientiert.\n";
+        if (!isStatusReady(shakeView)) message += "* Das Gerät wurde zu sehr bewegt.\n";
+        message += "Bitte achten Sie auf diese Fehlerquellen und versuchen Sie es erneut.";
+
+        Activity a = activity;
+        while (a.getParent() != null) {
+            a = a.getParent();
+        }
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(a);
+        alertBuilder.setMessage(message);
+        alertBuilder.setCancelable(true);
+        alertBuilder.setNeutralButton("Okay",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertBuilder.create();
+        alert.show();
+    }
+
+    //TODO this should not be in this class
+    public static void vibrate() {
+        Vibrator v = (Vibrator) baseContext.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(300);
     }
 
     private static boolean isStatusReady(ImageView view) {
