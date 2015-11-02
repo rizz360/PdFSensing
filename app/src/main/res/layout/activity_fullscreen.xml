@@ -104,118 +104,148 @@
             android:id="@+id/help_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="4dp"
             android:text="@string/help_instruction"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/helperText"
-            android:textSize="@dimen/help_text_size"
-            android:layout_marginTop="4dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:textSize="@dimen/help_text_size" />
 
         <RelativeLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="298dp"
             android:layout_height="41dp"
-            android:layout_marginTop="110dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:id="@+id/relativeLayout">
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="110dp">
 
             <TextView
                 android:id="@+id/help_gps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
                 android:text="@string/help_gps"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/helperText"
-                android:textSize="@dimen/help_text_size"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:textSize="@dimen/help_text_size" />
 
             <TextView
                 android:id="@+id/help_shake"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="right|top"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
                 android:text="@string/help_shake"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/helperText"
-                android:textSize="@dimen/help_text_size"
-                android:layout_gravity="right|top"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginRight="26dp"
-                android:layout_marginEnd="26dp" />
+                android:textSize="@dimen/help_text_size" />
 
             <TextView
                 android:id="@+id/help_orientation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal|top"
                 android:text="@string/help_orientation"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/helperText"
-                android:visibility="visible"
                 android:textSize="@dimen/help_text_size"
-                android:layout_gravity="center_horizontal|top"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:visibility="visible" />
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/relativeLayout2"
             android:layout_width="302dp"
             android:layout_height="32dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentStart="true">
 
             <TextView
                 android:id="@+id/help_play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/help_help"
+                android:layout_gravity="right|center_vertical"
+                android:gravity="center|center_horizontal"
                 android:text="@string/help_play"
+                android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/helperText"
-                android:textSize="@dimen/help_text_size"
-                android:layout_gravity="right|center_vertical"
-                android:textAlignment="center"
-                android:gravity="center|center_horizontal"
-                android:layout_alignTop="@+id/help_help"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:textSize="@dimen/help_text_size" />
 
             <TextView
                 android:id="@+id/help_help"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:text="@string/help_help"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/helperText"
-                android:textSize="@dimen/help_text_size"
-                android:layout_gravity="left|center_vertical"
-                android:layout_marginLeft="25dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="25dp" />
+                android:textSize="@dimen/help_text_size" />
 
             <TextView
                 android:id="@+id/help_record"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right|top"
                 android:text="@string/help_record"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/helperText"
-                android:textSize="@dimen/help_text_size"
-                android:layout_gravity="right|top"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:textSize="@dimen/help_text_size" />
 
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="500dp"
+                android:layout_height="200dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="44dp"
+                android:src="@drawable/ic_popup_window" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/imageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="86dp"
+                android:text="Hier drücken"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#010101" />
         </RelativeLayout>
 
     </RelativeLayout>
