@@ -26,7 +26,7 @@
     <string name="instruction_list">
         * Es regnet nicht \n* Sie sind draußen \n* Sie nehmen mit gestrecktem Arm auf \n* Es wird nicht geredet während der Aufnhame \n
     </string>
-    <string name="help_orientation">Orientation</string>
+    <string name="help_orientation">Orientierung</string>
     <string name="help_shake">Schütteln</string>
     <string name="help_gps">GPS Signal</string>
     <string name="help_instruction">Status Indikatoren - müssen grün/gelb sein:</string>
