@@ -28,7 +28,7 @@ public class ArcPlayTimer extends ArcTimer {
     private float start = 0f;
     private float sweep = 360;
     private int recordingLengthMS = 0;
-    private String playState = "";
+    private String playState = "\u25B6";
 
     public ArcPlayTimer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -86,7 +86,7 @@ public class ArcPlayTimer extends ArcTimer {
         AudioHandler.stopPlaying();
         Log.i(LOG_TAG, "Timer stopped");
         sweep = 360;
-        playState ="\u25B6";
+        playState = "\u25B6";
         cdt = null;
     }
 
