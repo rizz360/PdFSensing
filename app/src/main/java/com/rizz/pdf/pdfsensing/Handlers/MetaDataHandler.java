@@ -45,7 +45,7 @@ public class MetaDataHandler {
         //crashes application without tracestack
         //metaData.add("Max Amplitude: " + AudioHandler.getMaxAmplitude());
         metaData.add("Date: " + MetaDataHandler.getFormattedDate());
-        metaData.add("Location: " + LocationHandler.getCityName());
+        //metaData.add("Location: " + LocationHandler.getCityName());
         metaData.add("Longitude: " + LocationHandler.getLon());
         metaData.add("Latitude: " + LocationHandler.getLat());
         //metaData.add("Altitude: " + LocationHandler.getLastKnownLocation().getAltitude());

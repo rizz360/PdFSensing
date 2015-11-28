@@ -12,6 +12,9 @@ import android.util.Log;
 import com.rizz.pdf.pdfsensing.Handlers.AudioHandler;
 import com.rizz.pdf.pdfsensing.Handlers.StatusHandler;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 /**
  * Created by Rizz on 02/10/2015.
  * Used to display the record timer of 10 seconds
@@ -31,8 +34,10 @@ public class ArcRecordTimer extends ArcTimer {
     private float start = 0f;
     private float sweep = 360;
     private int secondsRemaining = (int)TIMER_DURATION_MS/1000;
+    private float detailSecondsRemaining = (float)TIMER_DURATION_MS/1000;
     private float radius = 30;
     private boolean growing = false;
+    private DecimalFormat df;
 
     public ArcRecordTimer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -47,7 +52,7 @@ public class ArcRecordTimer extends ArcTimer {
         textPaint.setColor(context.getResources().getColor(R.color.active));
         textPaint.setStyle(Paint.Style.FILL);
         textPaint.setAntiAlias(true);
-        textPaint.setTextSize(120f);
+        textPaint.setTextSize(95f);
 
         dotPaint = new Paint();
         dotPaint.setColor(context.getResources().getColor(R.color.active));
@@ -57,6 +62,9 @@ public class ArcRecordTimer extends ArcTimer {
         int offset = STROKE_WIDTH - 3;
         bigOval = new RectF(offset, offset, context.getResources().getDimension(R.dimen.icon_width) - offset, context.getResources().getDimension(R.dimen.icon_height) - offset);
         useCenter = false;
+
+        df = new DecimalFormat("0.0");
+        df.setRoundingMode(RoundingMode.DOWN);
     }
 
     public void startCountdown() {
@@ -71,7 +79,8 @@ public class ArcRecordTimer extends ArcTimer {
         cdt = new CountDownTimer(TIMER_DURATION_MS, TIMER_UPDATE_INTERVAL_MS) {
             @Override
             public void onTick(long l) {    //l = ms until finish
-                secondsRemaining = (int)Math.ceil((float)l/1000);
+                secondsRemaining = (int) Math.ceil((float)l/1000);
+                detailSecondsRemaining = (float)l/1000;
                 float percentage = ((float)l/TIMER_DURATION_MS);
                 sweep = 360 * percentage;
             }
@@ -79,6 +88,7 @@ public class ArcRecordTimer extends ArcTimer {
             @Override
             public void onFinish() {
                 stopCountDown();
+                AudioHandler.stopRecording();
                 StatusHandler.vibrate();
             }
         }.start();
@@ -87,10 +97,10 @@ public class ArcRecordTimer extends ArcTimer {
     public void stopCountDown() {
         if (!AudioHandler.isRecording()) return;
         cdt.cancel();
-        AudioHandler.stopRecording();
         Log.i(LOG_TAG, "Timer stopped");
         sweep = 360;
         secondsRemaining = (int)TIMER_DURATION_MS/1000;
+        detailSecondsRemaining = (float)TIMER_DURATION_MS/1000;
         cdt = null;
     }
 
@@ -116,7 +126,8 @@ public class ArcRecordTimer extends ArcTimer {
         //Draw middle portion displaying the remaining time in seconds
         //or a simple dot to indicate that recording can start
 
-        if(secondsRemaining >= TIMER_DURATION_MS/1000) {
+        //if(secondsRemaining >= TIMER_DURATION_MS/1000) {
+        if(detailSecondsRemaining >= TIMER_DURATION_MS/1000) {
             //draw additional pulse
             if(radius <= 30) growing = true;
             if(radius >= 45) growing = false;
@@ -128,8 +139,10 @@ public class ArcRecordTimer extends ArcTimer {
             //draw record dot
             canvas.drawCircle(bigOval.centerX(), bigOval.centerY(), 30, dotPaint);
         }
-        else
-            drawCenteredText(canvas, secondsRemaining+"", bigOval, textPaint);
+        else {
+            //drawCenteredText(canvas, secondsRemaining+"", bigOval, textPaint);
+            drawCenteredText(canvas, (df.format(detailSecondsRemaining)+""), bigOval, textPaint);
+        }
         invalidate();
     }
 }
