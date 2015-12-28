@@ -93,7 +93,7 @@ public class ArcPlayTimer extends ArcTimer {
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         //Draw the actual countdown arc
-        canvas.drawArc(bigOval, start, sweep, useCenter, arcPaint);
+        canvas.drawArc(bigOval, start, 360, useCenter, arcPaint);
         drawCenteredText(canvas, playState, bigOval, textPaint);
         invalidate();
     }
