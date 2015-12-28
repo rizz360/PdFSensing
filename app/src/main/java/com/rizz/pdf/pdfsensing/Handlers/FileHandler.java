@@ -49,7 +49,6 @@ public class FileHandler {
     }
 
     public static void writeMetaFile() {
-        LocationHandler.updateLocation();
         File metaFile = new File(getMetaFileName());
         FileWriter writer;
         try {

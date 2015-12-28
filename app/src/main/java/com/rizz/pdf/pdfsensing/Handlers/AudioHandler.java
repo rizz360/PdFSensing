@@ -60,13 +60,12 @@ public class AudioHandler {
         mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
         try {
             mediaRecorder.prepare();
+            mediaRecorder.start();
         } catch (IOException e) {
-            Log.e(LOG_TAG, "mediaRecorder.prepare() failed");
+            Log.e(LOG_TAG, "mediaRecorder.prepare() or mediaRecorder.start() failed");
         }
 
-        mediaRecorder.start();
         isRecording = true;
-
     }
 
     public static boolean isRecording() {

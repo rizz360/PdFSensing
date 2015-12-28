@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import com.rizz.pdf.pdfsensing.Handlers.AudioHandler;
-import com.rizz.pdf.pdfsensing.Handlers.StatusHandler;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -89,7 +88,6 @@ public class ArcRecordTimer extends ArcTimer {
             public void onFinish() {
                 stopCountDown();
                 AudioHandler.stopRecording();
-                StatusHandler.vibrate();
             }
         }.start();
     }

@@ -8,9 +8,7 @@ import android.widget.RelativeLayout;
 
 import com.rizz.pdf.pdfsensing.Handlers.AudioHandler;
 import com.rizz.pdf.pdfsensing.Handlers.FileHandler;
-import com.rizz.pdf.pdfsensing.Handlers.LocationHandler;
 import com.rizz.pdf.pdfsensing.Handlers.MetaDataHandler;
-import com.rizz.pdf.pdfsensing.Handlers.StatusHandler;
 
 /**
  * Created by Rizz.
@@ -41,9 +39,7 @@ public class FullscreenActivity extends Activity {
         Log.i(LOG_TAG, "Initializing services");
         FileHandler.init();
         AudioHandler.init(this);
-        LocationHandler.init(getBaseContext());
         MetaDataHandler.init();
-        StatusHandler.init(this);
         Log.i(LOG_TAG, "services initialized");
 
         arcRecTimer = (ArcRecordTimer)(this.findViewById(R.id.arcRecTimer));
@@ -52,10 +48,9 @@ public class FullscreenActivity extends Activity {
 
     //Propagate button calls towards methods
     public void recordAction(View view) {
-        if (StatusHandler.checkReadyState())
-            arcRecTimer.startCountdown();
+        arcRecTimer.startCountdown();
     }
-    
+
     public void helpAction(View view) {
         helpVisibility = !helpVisibility;
         if(helpVisibility)

@@ -31,7 +31,6 @@ public class MetaDataHandler {
     }
     public static void update() {
         updateDate();
-        LocationHandler.updateLocation();
         Log.i(LOG_TAG, "Meta Data updated");
     }
     public static String getFormattedDate() {
@@ -42,17 +41,7 @@ public class MetaDataHandler {
         metaData.add("Recording Filename: " + FileHandler.getRecFileName());
         metaData.add("Metadata Filename: " + FileHandler.getMetaFileName());
         metaData.add("Recording length: " + AudioHandler.getLastRecordingsLength() + "ms");
-        //crashes application without tracestack
-        //metaData.add("Max Amplitude: " + AudioHandler.getMaxAmplitude());
         metaData.add("Date: " + MetaDataHandler.getFormattedDate());
-        //metaData.add("Location: " + LocationHandler.getCityName());
-        metaData.add("Longitude: " + LocationHandler.getLon());
-        metaData.add("Latitude: " + LocationHandler.getLat());
-        //metaData.add("Altitude: " + LocationHandler.getLastKnownLocation().getAltitude());
-        //metaData.add("Accuracy: " + LocationHandler.getLastKnownLocation().getAccuracy());
-        metaData.add("Provider: " + LocationHandler.getLastKnownLocation().getProvider());
-
-
         return metaData;
     }
 
