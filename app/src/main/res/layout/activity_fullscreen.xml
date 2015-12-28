@@ -33,15 +33,6 @@
             android:onClick="recordAction"
             android:tint="@color/inactive" />
 
-        <com.rizz.pdf.pdfsensing.ArcPlayTimer
-            android:id="@+id/arcPlayTimer"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_height"
-            android:layout_gravity="right|center_vertical"
-            android:background="@drawable/roundcorner"
-            android:onClick="playAction"
-            android:tint="@color/inactive" />
-
     </FrameLayout>
 
     <RelativeLayout
@@ -61,21 +52,6 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentStart="true">
-
-            <TextView
-                android:id="@+id/help_play"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="right|center_vertical"
-                android:gravity="center|center_horizontal"
-                android:text="@string/help_play"
-                android:textAlignment="center"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/helperText"
-                android:textSize="@dimen/help_text_size"
-                android:layout_centerVertical="true" />
 
             <TextView
                 android:id="@+id/help_record"

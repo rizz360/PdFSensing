@@ -45,27 +45,7 @@ public class StatusHandler {
         res = activity.getResources();
         baseContext = activity.getBaseContext();
 
-        gpsView = (ImageView) activity.findViewById(R.id.gps_indicator); gpsView.setEnabled(false);
-        orientationView = (ImageView) activity.findViewById(R.id.orientation_indicator); orientationView.setEnabled(false);
-        shakeView = (ImageView) activity.findViewById(R.id.shake_indicator); shakeView.setEnabled(true);
         recordButton = (ArcRecordTimer) activity.findViewById(R.id.arcRecTimer);
-
-        activateOrientationListener();
-        LocationHandler.enableListener();
-        activateShakeListener();
-
-        readyStateCheckTimer = new CountDownTimer(500, 500) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-            }
-
-            @Override
-            public void onFinish() {
-                recordButton.setEnabled(checkReadyState());
-                updateReadyState();
-            }
-        };
-        updateReadyState();
     }
 
     public static void updateStatus(ImageView item, boolean status) {
@@ -141,7 +121,7 @@ public class StatusHandler {
     }
 
     private static boolean isStatusReady(ImageView view) {
-        return view.isEnabled();
+        return true;
     }
 
     private static void activateOrientationListener() {

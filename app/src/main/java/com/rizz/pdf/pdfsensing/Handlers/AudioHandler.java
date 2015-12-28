@@ -17,7 +17,6 @@ import java.io.IOException;
 public class AudioHandler {
     private static final String LOG_TAG = "AudioHandler";
     private static AudioHandler audioHandler = null;
-    private static ArcPlayTimer playButton = null;
     private static MediaPlayer mediaPlayer = null;
     private static MediaRecorder mediaRecorder = null;
     private static boolean isRecording = false;
@@ -27,8 +26,6 @@ public class AudioHandler {
 
     public static void init(Activity activity) {
         if(audioHandler == null) audioHandler = new AudioHandler();
-        playButton = (ArcPlayTimer) (activity.findViewById(R.id.arcPlayTimer));
-        playButton.setEnabled(false);
     }
 
     public static int getLastRecordingsLength() {
@@ -84,7 +81,6 @@ public class AudioHandler {
         if (!isRecording()) return;
         mediaRecorder.stop();
         mediaRecorder.release();
-        playButton.setEnabled(true);
         FileHandler.writeMetaFile();
         mediaRecorder = null;
         isRecording = false;

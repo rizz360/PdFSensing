@@ -48,7 +48,6 @@ public class FullscreenActivity extends Activity {
         Log.i(LOG_TAG, "services initialized");
 
         arcRecTimer = (ArcRecordTimer)(this.findViewById(R.id.arcRecTimer));
-        arcPlayTimer = (ArcPlayTimer)(this.findViewById(R.id.arcPlayTimer));
         helpOverlay = (RelativeLayout)(this.findViewById(R.id.help_overlay));
     }
 

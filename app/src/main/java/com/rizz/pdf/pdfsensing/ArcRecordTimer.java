@@ -22,12 +22,12 @@ import java.text.DecimalFormat;
 public class ArcRecordTimer extends ArcTimer {
     private static String LOG_TAG = "ArcRecordTimer";
     private final int STROKE_WIDTH = 7;
-    private final long TIMER_DURATION_MS = 10000L;
+    private final long TIMER_DURATION_MS = 100000L;
     private final long TIMER_UPDATE_INTERVAL_MS = 50L;
     private Paint arcPaint;
     private Paint textPaint;
     private Paint dotPaint;
-    private boolean isEnabled = false;
+    private boolean isEnabled = true;
     private RectF bigOval;  //is basically the frame in which the Arc is allowed to move
     private boolean useCenter;
     private CountDownTimer cdt;
@@ -68,7 +68,7 @@ public class ArcRecordTimer extends ArcTimer {
     }
 
     public void startCountdown() {
-        secondsRemaining = 10;
+        secondsRemaining = 100;
         if(cdt != null) {
             stopCountDown();
             sweep = 360;
@@ -104,18 +104,10 @@ public class ArcRecordTimer extends ArcTimer {
         cdt = null;
     }
 
-    public boolean isEnabled() {
-        return isEnabled;
-    }
-
-    public void setEnabled(boolean state) {
-        isEnabled = state;
-    }
-
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         //Draw the actual countdown arc
-        canvas.drawArc(bigOval, start, sweep, useCenter, arcPaint);
+        canvas.drawArc(bigOval, start, 360, useCenter, arcPaint);
 
         if (!isEnabled) {
             canvas.drawLine(0, 0, bigOval.width(), bigOval.height(), arcPaint);
@@ -140,8 +132,7 @@ public class ArcRecordTimer extends ArcTimer {
             canvas.drawCircle(bigOval.centerX(), bigOval.centerY(), 30, dotPaint);
         }
         else {
-            //drawCenteredText(canvas, secondsRemaining+"", bigOval, textPaint);
-            drawCenteredText(canvas, (df.format(detailSecondsRemaining)+""), bigOval, textPaint);
+            drawCenteredText(canvas, "\u25A0", bigOval, textPaint);
         }
         invalidate();
     }
