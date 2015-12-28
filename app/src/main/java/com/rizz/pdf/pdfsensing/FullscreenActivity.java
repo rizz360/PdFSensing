@@ -21,7 +21,6 @@ import com.rizz.pdf.pdfsensing.Handlers.StatusHandler;
 public class FullscreenActivity extends Activity {
     private static final String LOG_TAG = "FullScreenActivity";
     private ArcRecordTimer arcRecTimer;
-    private ArcPlayTimer arcPlayTimer;
     private RelativeLayout helpOverlay;
     private boolean helpVisibility = false;
 
@@ -56,9 +55,7 @@ public class FullscreenActivity extends Activity {
         if (StatusHandler.checkReadyState())
             arcRecTimer.startCountdown();
     }
-
-    public void playAction(View view) {arcPlayTimer.startCountdown();}
-
+    
     public void helpAction(View view) {
         helpVisibility = !helpVisibility;
         if(helpVisibility)

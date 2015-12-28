@@ -5,9 +5,6 @@ import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.util.Log;
 
-import com.rizz.pdf.pdfsensing.ArcPlayTimer;
-import com.rizz.pdf.pdfsensing.R;
-
 import java.io.IOException;
 
 /**
