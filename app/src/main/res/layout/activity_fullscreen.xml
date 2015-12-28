@@ -21,56 +21,8 @@
     <FrameLayout
         android:layout_width="@dimen/panel_width"
         android:layout_height="@dimen/panel_height"
-        android:layout_gravity="center_horizontal|top"
-        android:background="@color/panel_background">
-
-        <ImageView
-            android:id="@+id/orientation_indicator"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_width"
-            android:layout_gravity="center"
-            android:contentDescription="@string/orientation_indicator_description"
-            android:src="@drawable/ic_orientation"
-            android:tint="@color/negative" />
-
-        <ImageView
-            android:id="@+id/shake_indicator"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_height"
-            android:layout_gravity="right|center_vertical"
-            android:contentDescription="@string/shake_description"
-            android:src="@drawable/ic_shake"
-            android:tint="@color/positive" />
-
-        <ImageView
-            android:id="@+id/gps_indicator"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_height"
-            android:layout_gravity="left|center_vertical"
-            android:contentDescription="@string/gps_indicator_description"
-            android:src="@drawable/ic_gps"
-            android:tint="@color/negative" />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="@dimen/panel_width"
-        android:layout_height="@dimen/panel_height"
         android:layout_gravity="center_horizontal|bottom"
         android:background="@color/panel_background">
-
-        <Button
-            android:id="@+id/helpButton"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_height"
-            android:layout_gravity="left|center_vertical"
-            android:background="@drawable/roundcorner"
-            android:contentDescription="@string/help_description"
-            android:onClick="helpAction"
-            android:src="@drawable/ic_menu"
-            android:text="@string/help_button_special"
-            android:textColor="@color/inactive"
-            android:textSize="70sp"
-            android:tint="@color/inactive" />
 
         <com.rizz.pdf.pdfsensing.ArcRecordTimer
             android:id="@+id/arcRecTimer"
@@ -100,73 +52,6 @@
         android:background="@color/help_background"
         android:visibility="visible">
 
-        <TextView
-            android:id="@+id/help_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="4dp"
-            android:text="@string/help_instruction"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/helperText"
-            android:textSize="@dimen/help_text_size" />
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="298dp"
-            android:layout_height="41dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="110dp">
-
-            <TextView
-                android:id="@+id/help_gps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="14dp"
-                android:layout_marginStart="14dp"
-                android:text="@string/help_gps"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/helperText"
-                android:textSize="@dimen/help_text_size" />
-
-            <TextView
-                android:id="@+id/help_shake"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="right|top"
-                android:layout_marginEnd="14dp"
-                android:layout_marginRight="14dp"
-                android:text="@string/help_shake"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/helperText"
-                android:textSize="@dimen/help_text_size" />
-
-            <TextView
-                android:id="@+id/help_orientation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal|top"
-                android:text="@string/help_orientation"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/helperText"
-                android:textSize="@dimen/help_text_size"
-                android:visibility="visible" />
-        </RelativeLayout>
-
         <RelativeLayout
             android:id="@+id/relativeLayout2"
             android:layout_width="302dp"
@@ -183,29 +68,14 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignTop="@+id/help_help"
                 android:layout_gravity="right|center_vertical"
                 android:gravity="center|center_horizontal"
                 android:text="@string/help_play"
                 android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/helperText"
-                android:textSize="@dimen/help_text_size" />
-
-            <TextView
-                android:id="@+id/help_help"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="left|center_vertical"
-                android:layout_marginLeft="25dp"
-                android:layout_marginStart="25dp"
-                android:text="@string/help_help"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/helperText"
-                android:textSize="@dimen/help_text_size" />
+                android:textSize="@dimen/help_text_size"
+                android:layout_centerVertical="true" />
 
             <TextView
                 android:id="@+id/help_record"
@@ -219,33 +89,6 @@
                 android:textColor="@color/helperText"
                 android:textSize="@dimen/help_text_size" />
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="500dp"
-                android:layout_height="200dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginBottom="44dp"
-                android:src="@drawable/ic_popup_window" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/imageView"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="86dp"
-                android:text="Hier drücken"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#010101" />
         </RelativeLayout>
 
     </RelativeLayout>
