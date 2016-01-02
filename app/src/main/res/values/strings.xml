@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">PdF Sensing-Barebone</string>
+    <string name="app_name" translatable="false">BB PdF Sensing</string>
 
     <string name="dummy_button" translatable="false">Dummy Button</string>
     <string name="background_text" translatable="false">PDF\nSENSING</string>

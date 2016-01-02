@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.0"
 
     defaultConfig {
-        applicationId "com.rizz.pdf.pdfsensing"
+        applicationId "com.rizz.pdf.pdfsensing.barebone"
         minSdkVersion 10
         targetSdkVersion 23
         versionCode 1
