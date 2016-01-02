@@ -1,7 +1,6 @@
 package com.rizz.pdf.pdfsensing.Handlers;
 
 import android.app.Activity;
-import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.util.Log;
 
@@ -14,7 +13,6 @@ import java.io.IOException;
 public class AudioHandler {
     private static final String LOG_TAG = "AudioHandler";
     private static AudioHandler audioHandler = null;
-    private static MediaPlayer mediaPlayer = null;
     private static MediaRecorder mediaRecorder = null;
     private static boolean isRecording = false;
 
@@ -23,32 +21,6 @@ public class AudioHandler {
 
     public static void init(Activity activity) {
         if(audioHandler == null) audioHandler = new AudioHandler();
-    }
-
-    public static int getLastRecordingsLength() {
-        if(mediaPlayer == null) return 0;
-        return mediaPlayer.getDuration();
-    }
-    //something strange is going on here...
-    public static int getMaxAmplitude() {
-        if (mediaRecorder == null) return 0;
-        return  mediaRecorder.getMaxAmplitude();
-    }
-
-    public static void startPlaying() {
-        mediaPlayer = new MediaPlayer();
-        try {
-            mediaPlayer.setDataSource(FileHandler.getRecFileName());
-            mediaPlayer.prepare();
-            mediaPlayer.start();
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "mediaPlayer.prepare() failed");
-        }
-    }
-
-    public static void stopPlaying() {
-        mediaPlayer.release();
-        mediaPlayer = null;
     }
 
     public static void startRecording() {
@@ -88,9 +60,5 @@ public class AudioHandler {
             mediaRecorder = null;
         }
 
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
     }
 }
