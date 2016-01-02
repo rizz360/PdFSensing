@@ -40,7 +40,7 @@ public class MetaDataHandler {
     public static List<String> getMetaData() {
         metaData.add("Recording Filename: " + FileHandler.getRecFileName());
         metaData.add("Metadata Filename: " + FileHandler.getMetaFileName());
-        metaData.add("Recording length: " + AudioHandler.getLastRecordingsLength() + "ms");
+        //metaData.add("Recording length: " + AudioHandler.getLastRecordingsLength() + "ms");
         metaData.add("Date: " + MetaDataHandler.getFormattedDate());
         return metaData;
     }
