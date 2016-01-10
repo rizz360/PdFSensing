@@ -67,6 +67,11 @@ public class ArcRecordTimer extends ArcTimer {
     }
 
     public void startCountdown() {
+        if(AudioHandler.isRecording()) {
+            stopCountDown();
+            AudioHandler.stopRecording();
+            return;
+        }
         secondsRemaining = 100;
         if(cdt != null) {
             stopCountDown();
