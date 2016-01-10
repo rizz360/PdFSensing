@@ -23,7 +23,7 @@ public class FullscreenActivity extends Activity {
     private ArcRecordTimer arcRecTimer;
     private ArcPlayTimer arcPlayTimer;
     private RelativeLayout helpOverlay;
-    private boolean helpVisibility = false;
+    private boolean helpVisibility = true;
 
     public FullscreenActivity() {}
 
