@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.CountDownTimer;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -68,6 +69,11 @@ public class ArcRecordTimer extends ArcTimer {
     }
 
     public void startCountdown() {
+        if(AudioHandler.isRecording()) {
+            stopCountDown();
+            AudioHandler.stopRecording();
+            return;
+        }
         secondsRemaining = 10;
         if(cdt != null) {
             stopCountDown();
@@ -96,7 +102,8 @@ public class ArcRecordTimer extends ArcTimer {
 
     public void stopCountDown() {
         if (!AudioHandler.isRecording()) return;
-        cdt.cancel();
+        if (cdt != null)
+            cdt.cancel();
         Log.i(LOG_TAG, "Timer stopped");
         sweep = 360;
         secondsRemaining = (int)TIMER_DURATION_MS/1000;

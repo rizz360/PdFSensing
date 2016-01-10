@@ -58,6 +58,8 @@ public class AudioHandler {
     }
 
     public static void startRecording() {
+        if(isRecording)
+            stopRecording();
         mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);

@@ -14,7 +14,7 @@
     <string name="dummy_content" translatable="false">DUMMY\nCONTENT</string>
     <string name="question1" translatable="false">Sie sind draußen</string>
     <string name="question2" translatable="false">Es regnet nicht</string>
-    <string name="question3" translatable="false">Sie sind ruhig während Aufnahme</string>
+    <string name="question3" translatable="false">Sie sind absolut leise während Aufnahme</string>
     <string name="question4" translatable="false">Sie nehmen mit gestrecktem Arm auf</string>
     <string name="question5" translatable="false">Sie sind bereit</string>
     <string name="title_activity_splashscreen" translatable="false">Splashscreen</string>
@@ -24,7 +24,7 @@
     <string name="splashScreenButtonText">Get started!</string>
     <string name="instruction_title">Bitte fahren Sie nur unter folgenden Bedingungen fort:</string>
     <string name="instruction_list">
-        * Es regnet nicht \n* Sie sind draußen \n* Sie nehmen mit gestrecktem Arm auf \n* Es wird nicht geredet während der Aufnhame \n
+        * Es regnet nicht \n* Sie sind draußen \n* Sie nehmen mit gestrecktem Arm auf \n* Sie sind absolut lautlos während der Aufnahme \n
     </string>
     <string name="help_orientation">Orientation</string>
     <string name="help_shake">Schütteln</string>

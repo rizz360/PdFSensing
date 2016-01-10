@@ -111,10 +111,12 @@ public class StatusHandler {
 
     public static void displayAlert() {
         String message = "Es kam zu folgenden Problemen:\n";
-        if (!isStatusReady(gpsView)) message += "* Das GPS Signal ist zu schwach.\n";
+        if (!isStatusReady(gpsView))
+            message += "* Das GPS Signal ist zu schwach.\n";
         if (!isStatusReady(orientationView))
             message += "* Das Gerät ist nicht korrekt orientiert.\n";
-        if (!isStatusReady(shakeView)) message += "* Das Gerät wurde zu sehr bewegt.\n";
+        if (!isStatusReady(shakeView))
+            message += "* Das Gerät wurde zu sehr bewegt.\n";
         message += "Bitte achten Sie auf diese Fehlerquellen und versuchen Sie es erneut.";
 
         Activity a = activity;

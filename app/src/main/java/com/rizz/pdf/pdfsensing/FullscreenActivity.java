@@ -25,11 +25,6 @@ public class FullscreenActivity extends Activity {
     private RelativeLayout helpOverlay;
     private boolean helpVisibility = false;
 
-    /*TODO
-    * fix play button state
-    * make intro screen nicer to look at
-    * add splash screen before intro screen?
-     */
     public FullscreenActivity() {}
 
     @Override
